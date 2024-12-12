@@ -5,11 +5,12 @@ import com.livraria.domain.Book.DTO.UpdateBookDTO;
 import com.livraria.domain.Book.Book;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface IBookService {
     public Book createBook(CreateBookDTO createBookDTO);
-    public Book editBook(UpdateBookDTO updateBookDTO, Long id);
-    public Book removeBook(Long id);
-    public Book getById(Long id);
+    public Book updateBook(UpdateBookDTO updateBookDTO, UUID id);
+    public Book removeBook(UUID id);
+    public Book getById(UUID id);
     public List<Book> getAll();
 }

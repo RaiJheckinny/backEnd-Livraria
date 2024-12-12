@@ -5,10 +5,12 @@ import com.livraria.domain.Book.DTO.CreateBookDTO;
 import com.livraria.domain.Book.DTO.UpdateBookDTO;
 import com.livraria.repository.IBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
+import java.util.UUID;
+@Service
 public class BookService implements IBookService{
 
     @Autowired
@@ -23,26 +25,27 @@ public class BookService implements IBookService{
     }
 
     @Override
-    public Book editBook(UpdateBookDTO updateBookDTO, Long id) {
+    public Book updateBook(UpdateBookDTO updateBookDTO, UUID id) {
         Book book = getById(id);
         book.setName(updateBookDTO.name());
         book.setDescription(updateBookDTO.description());
         book.setAuthor(updateBookDTO.author());
         book.setStockQuantity(updateBookDTO.stockQuantity());
+        book.setPrice(updateBookDTO.price());
         repository.save(book);
         return book;
     }
 
     @Override
-    public Book removeBook(Long id) {
+    public Book removeBook(UUID id) {
         Book book = getById(id);
         repository.delete(book);
         return book;
     }
 
     @Override
-    public Book getById(Long id) {
-        return repository.findByUUID(id).orElseThrow(() -> new RuntimeException("Livro com o id: "+ id +" nao encontrado"));
+    public Book getById(UUID id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Livro com o id: "+ id +" nao encontrado"));
     }
 
     @Override
