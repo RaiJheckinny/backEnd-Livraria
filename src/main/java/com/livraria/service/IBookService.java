@@ -1,8 +1,8 @@
 package com.livraria.service;
 
-import com.livraria.domain.Book.DTO.CreateBookDTO;
-import com.livraria.domain.Book.DTO.UpdateBookDTO;
-import com.livraria.domain.Book.Book;
+import com.livraria.domain.book.DTO.CreateBookDTO;
+import com.livraria.domain.book.DTO.UpdateBookDTO;
+import com.livraria.domain.book.Book;
 
 import java.util.List;
 import java.util.UUID;
