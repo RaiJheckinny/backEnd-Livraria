@@ -1,8 +1,7 @@
-package com.livraria.domain.Book;
+package com.livraria.domain.book;
 
-import com.livraria.domain.Book.DTO.CreateBookDTO;
+import com.livraria.domain.book.DTO.CreateBookDTO;
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
